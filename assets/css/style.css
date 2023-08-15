@@ -224,7 +224,7 @@ h6 {
 # Navigation Menu
 --------------------------------------------------------------*/
 /**
-* Desktop Navigation 
+* Desktop Navigation
 */
 .navbar {
   padding: 0;
@@ -344,7 +344,7 @@ h6 {
 }
 
 /**
-* Mobile Navigation 
+* Mobile Navigation
 */
 .mobile-nav-toggle {
   color: #0c790e;
@@ -1012,8 +1012,8 @@ section {
   padding-bottom: 8px;
 }
 
-.appointment .php-email-form .validate {
-  display: none;
+.validate {
+  /* display: none; */
   color: red;
   margin: 0 0 15px 0;
   font-weight: 400;

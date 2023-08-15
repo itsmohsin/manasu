@@ -39,7 +39,7 @@
 </head>
 
 <body>
-  
+
   <!-- ======= Top Bar ======= -->
   <div id="topbar" class="d-flex align-items-center fixed-top">
     <div class="container d-flex justify-content-between">
@@ -119,9 +119,9 @@
             <div class="content">
               <h3>Why Choose Manasu?</h3>
               <p>
-                As mental health includes our emotional, psychological, and social well-being. 
-                It affects how we think, feel, and act. It also helps determine how we handle 
-                stress, relate to others, and make healthy choices.Mental health is important 
+                As mental health includes our emotional, psychological, and social well-being.
+                It affects how we think, feel, and act. It also helps determine how we handle
+                stress, relate to others, and make healthy choices.Mental health is important
                 at every stage of life, from childhood and adolescence through adulthood.
 
               </p>
@@ -277,7 +277,7 @@
             <div class="icon-box">
               <div class="icon"><i class="fas fa-hospital-user"></i></div>
               <h4><a href="">Training programs offered</a></h4>
-              <p>Life skills training, social skills training, capacity building and personality development, stress management for employees, Academic stress management 
+              <p>Life skills training, social skills training, capacity building and personality development, stress management for employees, Academic stress management
                 for students and Statistical analysis and interpretation for thesis and dissertations.</p>
             </div>
           </div>
@@ -320,25 +320,25 @@
           <p>schedule your appointment today</p>
         </div>
 
-        <form action="forms/appointment.php" method="post" role="form" class="php-email-form">
+        <form action="submit.php" method="post" role="form" class="php-email-form" id="app_form">
           <div class="row">
             <div class="col-md-4 form-group">
               <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-              <div class="validate"></div>
+              <div class="validate" id="name_validate"></div>
             </div>
             <div class="col-md-4 form-group mt-3 mt-md-0">
               <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email">
-              <div class="validate"></div>
+              <div class="validate" id="email_validate"></div>
             </div>
             <div class="col-md-4 form-group mt-3 mt-md-0">
               <input type="tel" class="form-control" name="phone" id="phone" placeholder="Your Phone" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-              <div class="validate"></div>
+              <div class="validate" id="phone_validate"></div>
             </div>
           </div>
           <div class="row">
             <div class="col-md-4 form-group mt-3">
               <input type="datetime" name="date" class="form-control datepicker" id="date" placeholder="Appointment Date" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-              <div class="validate"></div>
+              <div class="validate" id="date_validate"></div>
             </div>
             <!-- <div class="col-md-4 form-group mt-3">
               <select name="department" id="department" class="form-select">
@@ -356,20 +356,21 @@
                 <!-- <option value="Doctor 2">Doctor 2</option>
                 <option value="Doctor 3">Doctor 3</option> -->
               </select>
-              <div class="validate"></div>
+              <div class="validate" id="doctor_validate"></div>
             </div>
           </div>
 
           <div class="form-group mt-3">
             <textarea class="form-control" name="message" rows="5" placeholder="Message (Optional)"></textarea>
-            <div class="validate"></div>
+            <div class="validate" id="message_validate"></div>
           </div>
+          <div class="form-group mt-3 g-recaptcha" data-sitekey="6LeqQcMUAAAAALotYi1KSpZhQPt8rRg01VEcNuzL" ></div>
           <div class="mb-3">
             <div class="loading">Loading</div>
             <div class="error-message"></div>
             <div class="sent-message">Your appointment request has been sent successfully. Thank you!</div>
           </div>
-          <div class="text-center"><button type="submit">Make an Appointment</button></div>
+          <div class="text-center"><button type="submit" name="appointment">Make an Appointment</button></div>
         </form>
 
       </div>
@@ -603,7 +604,7 @@
                   • Experiences related to other ongoing (chronic) medical conditions, such as cancer or diabetes <br>
                   • Biological factors or chemical imbalances in the brain <br>
                   • Use of alcohol or drugs <br>
-                  • Having feelings of loneliness or isolation <br>              
+                  • Having feelings of loneliness or isolation <br>
                 </p>
               </div>
             </li>
@@ -845,26 +846,31 @@
 
           <div class="col-lg-8 mt-5 mt-lg-0">
 
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form action="submit_contact.php" method="post" role="form" class="php-email-form" id="contact_form">
               <div class="row">
                 <div class="col-md-6 form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                  <div class="validate" id="name_validate2"></div>
                 </div>
                 <div class="col-md-6 form-group mt-3 mt-md-0">
                   <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                  <div class="validate" id="email_validate2"></div>
                 </div>
               </div>
               <div class="form-group mt-3">
                 <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                <div class="validate" id="subject_validate2"></div>
               </div>
               <div class="form-group mt-3">
                 <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                <div class="validate" id="message_validate2"></div>
               </div>
               <div class="my-3">
                 <div class="loading">Loading</div>
                 <div class="error-message"></div>
                 <div class="sent-message">Your message has been sent. Thank you!</div>
               </div>
+              <div class="form-group mt-3 g-recaptcha" data-sitekey="6LeqQcMUAAAAALotYi1KSpZhQPt8rRg01VEcNuzL" ></div>
               <div class="text-center"><button type="submit">Send Message</button></div>
             </form>
 
@@ -957,14 +963,103 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
+  <script src="assets/js/jquery.min.js"></script>
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
-
+  <script src="assets\js\jquery.validate.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <script type="text/javascript">
+      jQuery(document).ready(function() {
+        jQuery('#app_form').validate({
+          rules: {
+            name: {
+              required: true,
+            },
+            email: {
+                required: true,
+                email: true,
+            },
+            phone: {
+              required: true,
+              minlength: 10,
+              maxlength: 10,
+              number: true
+            },
+            date: {
+              required: true,
+            },
+            doctor: 'required',
+          },
+          messages: {
+            name: {
+              required: 'This field is required',
+            },
+            phone: {
+              required: 'This field is required',
+            },
+            email: {
+              required: 'This field is required',
+            },
+            date: {
+              required: 'This field is required',
+            },
+            doctor: {
+              required: 'This field is required',
+            },
+          },
+          errorPlacement: function (error, element) {
+            var name = $(element).attr("name");
+            error.appendTo($("#" + name + "_validate"));
+        },
+          submitHandler: function(form) {
+            form.submit();
+          },
+        });
+
+        jQuery('#contact_form').validate({
+          rules: {
+            name: {
+              required: true,
+            },
+            email: {
+                required: true,
+                email: true,
+            },
+            subject: {
+              required: true,
+            },
+            message: 'required',
+          },
+          messages: {
+            name: {
+              required: 'This field is required',
+            },
+            email: {
+              required: 'This field is required',
+            },
+            subject: {
+              required: 'This field is required',
+            },
+            message: {
+              required: 'This field is required',
+            },
+          },
+          errorPlacement: function (error, element) {
+            var name = $(element).attr("name");
+            error.appendTo($("#" + name + "_validate2"));
+        },
+          submitHandler: function(form) {
+            form.submit();
+          },
+        });
+      });
+  </script>
 
 </body>
 
